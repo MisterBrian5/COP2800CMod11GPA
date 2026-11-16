@@ -90,9 +90,11 @@ public class PenguinAnalyzer {
                                 bodyMass, sex, flipperLength);
                         penguinList.add(penguin);
                         count++; // Increment count after adding a penguin
-                    } catch (NumberFormatException e) {
-                        System.err.println("Skipping invalid row: " + line);
-                    }
+                } catch (NumberFormatException e) {
+    			System.err.println("Skipping invalid row: " + line);
+		} catch (InvalidBirdDataException e) {
+    			System.out.println(e);
+		}
                 } else {
                     System.err.println("Skipping malformed row: " + line);
                 }
